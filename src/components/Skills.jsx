@@ -1,13 +1,75 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const skills = [
-  { category: 'Backend & Infrastructure', items: ['FastAPI', 'Flask', 'REST APIs', 'Docker', 'GitHub Actions', 'CI/CD', 'Linux', 'Monitoring', 'Automation'] },
-  { category: 'AI, ML & Intelligent Systems', items: ['LLMs', 'NLP', 'LangChain', 'RAG', 'Semantic Search', 'Embeddings', 'Prompt Engineering', 'Machine Learning', 'spaCy', 'scikit-learn'] },
-  { category: 'Software Engineering', items: ['Python', 'Java', 'SQL', 'Git', 'Debugging', 'Deployment Pipelines', 'System Design'] },
-  { category: 'Databases & Storage', items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'] },
-  { category: 'Frontend', items: ['React.js', 'JavaScript', 'Tailwind CSS', 'HTML', 'CSS'] },
-  { category: 'Tools & Platforms', items: ['Vercel', 'Postman', 'Jupyter', 'VS Code', 'Git'] },
+{
+category: 'Programming Languages',
+items: [
+'Java',
+'Python',
+'SQL',
+'JavaScript',
+'Data Structures & Algorithms',
+],
+},
+{
+category: 'AI & Machine Learning',
+items: [
+'Generative AI',
+'Machine Learning',
+'Deep Learning',
+'NLP',
+'LangChain',
+'Prompt Engineering',
+'RAG',
+'Agentic AI',
+],
+},
+{
+category: 'Backend Engineering',
+items: [
+'Node.js',
+'Express.js',
+'FastAPI',
+'Flask',
+'REST APIs',
+'Authentication',
+'API Design',
+],
+},
+{
+category: 'Frontend Development',
+items: [
+'React',
+'JavaScript',
+'HTML',
+'CSS',
+'Tailwind CSS',
+'Bootstrap',
+],
+},
+{
+category: 'Databases',
+items: [
+'MySQL',
+'MongoDB',
+'Firebase',
+'Supabase',
+],
+},
+{
+category: 'Tools & Platforms',
+items: [
+'Git',
+'GitHub',
+'Docker',
+'Postman',
+'Power BI',
+'Vercel',
+'VS Code',
+],
+},
 ]
+
 
 export default function Skills() {
   const [visible, setVisible] = useState(false)
@@ -31,11 +93,11 @@ export default function Skills() {
         {/* Section header */}
         <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="lg:col-span-4">
-            <span className="section-tag">Stack</span>
+            <span className="section-tag">Capabilities</span>
           </div>
           <div className="lg:col-span-8">
             <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy dark:text-cream leading-[0.9] tracking-tighter">
-              Technical<br />Arsenal
+              Engineering<br />Toolkit
             </h2>
             <div className="w-24 h-1 bg-coral mt-8" />
           </div>
