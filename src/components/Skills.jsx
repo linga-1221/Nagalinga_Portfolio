@@ -1,0 +1,76 @@
+import React, { useEffect, useRef, useState } from 'react'
+
+const skills = [
+  { category: 'Backend & Infrastructure', items: ['FastAPI', 'Flask', 'REST APIs', 'Docker', 'GitHub Actions', 'CI/CD', 'Linux', 'Monitoring', 'Automation'] },
+  { category: 'AI, ML & Intelligent Systems', items: ['LLMs', 'NLP', 'LangChain', 'RAG', 'Semantic Search', 'Embeddings', 'Prompt Engineering', 'Machine Learning', 'spaCy', 'scikit-learn'] },
+  { category: 'Software Engineering', items: ['Python', 'Java', 'SQL', 'Git', 'Debugging', 'Deployment Pipelines', 'System Design'] },
+  { category: 'Databases & Storage', items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase', 'Supabase'] },
+  { category: 'Frontend', items: ['React.js', 'JavaScript', 'Tailwind CSS', 'HTML', 'CSS'] },
+  { category: 'Tools & Platforms', items: ['Vercel', 'Postman', 'Jupyter', 'VS Code', 'Git'] },
+]
+
+export default function Skills() {
+  const [visible, setVisible] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.1 }
+    )
+    if (ref.current) observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <section id="skills" className="py-32 relative overflow-hidden" ref={ref}>
+      {/* Background strip */}
+      <div className="absolute inset-y-0 left-0 w-1/3 bg-navy hidden lg:block" />
+      
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative">
+        {/* Section header */}
+        <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="lg:col-span-4">
+            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-coral">Stack</span>
+          </div>
+          <div className="lg:col-span-8">
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl text-navy leading-[0.9] tracking-tighter">
+              Technical<br />Arsenal
+            </h2>
+            <div className="w-24 h-1 bg-coral mt-8" />
+          </div>
+        </div>
+
+        {/* Skills grid - offset layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skills.map((group, gi) => (
+            <div
+              key={group.category}
+              className={`transition-all duration-500 delay-${gi * 100} ${
+                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+              }`}
+              style={{ transitionDelay: `${gi * 0.1}s` }}
+            >
+              <div className="border-2 border-navy bg-white p-8 h-full">
+                <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-coral mb-6">
+                  {String(gi + 1).padStart(2, '0')}
+                </p>
+                <h3 className="font-display text-2xl text-navy mb-6">{group.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-medium text-navy/60 bg-navy/5 px-3 py-2 hover:bg-coral hover:text-cream transition-colors duration-200"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
