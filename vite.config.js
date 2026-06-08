@@ -3,9 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  root: '.',
-  base: '/Nagalinga_Portfolio/',
-  build: {
-    outDir: 'dist',
-  },
+  base: '/',
 })
