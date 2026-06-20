@@ -1,0 +1,90 @@
+'use client';
+
+import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
+import Hero from '@/components/hero/Hero';
+import About from '@/components/about/About';
+import Skills from '@/components/skills/Skills';
+import Timeline from '@/components/timeline/Timeline';
+import Projects from '@/components/projects/Projects';
+import Achievements from '@/components/achievements/Achievements';
+import AIAssistant from '@/components/ai-assistant/AIAssistant';
+import Contact from '@/components/contact/Contact';
+
+// Dynamic imports for performance
+const AnimatedCursor = dynamic(() => import('@/components/ui/AnimatedCursor'), {
+  ssr: false,
+});
+
+const ScrollProgress = dynamic(() => import('@/components/ui/ScrollProgress'), {
+  ssr: false,
+});
+
+const ParticleBackground = dynamic(() => import('@/components/ui/ParticleBackground'), {
+  ssr: false,
+});
+
+export default function HomePage() {
+  return (
+    <div className="relative min-h-screen">
+      {/* Global Effects */}
+      <AnimatedCursor />
+      <ScrollProgress />
+      <ParticleBackground />
+
+      {/* Hero Section */}
+      <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <Hero />
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <About />
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section id="skills" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Skills />
+        </div>
+      </section>
+
+      {/* Timeline Section */}
+      <section id="timeline" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Timeline />
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section id="projects" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Projects />
+        </div>
+      </section>
+
+      {/* Achievements Section */}
+      <section id="achievements" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Achievements />
+        </div>
+      </section>
+
+      {/* AI Assistant Section */}
+      <section id="ai-assistant" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <AIAssistant />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <Contact />
+        </div>
+      </section>
+    </div>
+  );
+}
